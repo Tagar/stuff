@@ -5,7 +5,7 @@
 
 def copyMerge (src_dir, dst_file, overwrite=False, deleteSource=False, debug=False):
     
-    # inspired by https://hadoop.apache.org/docs/r2.7.1/api/src-html/org/apache/hadoop/fs/FileUtil.html#line.382
+    # this function has been migrated to https://github.com/Tagar/abalon Python package
     
     hadoop = sc._jvm.org.apache.hadoop
     conf = hadoop.conf.Configuration()
