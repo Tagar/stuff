@@ -15,10 +15,10 @@ def copyMerge (src_dir, dst_file, overwrite=False, deleteSource=False, debug=Fal
     files = []
     for f in fs.listStatus(hadoop.fs.Path(src_dir)):
         if f.isFile():
-            files.append(str(f.getPath()))
+            files.append(f.getPath())
     if not files:
         raise ValueError("Source directory {} is empty".format(src_dir))
-    files.sort()
+    files.sort(key=lambda f: str(f))
 
     # dst_permission = hadoop.fs.permission.FsPermission.valueOf(permission)      # , permission='-rw-r-----'
     out_stream = fs.create(hadoop.fs.Path(dst_file), overwrite)
