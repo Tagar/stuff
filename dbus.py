@@ -41,7 +41,7 @@ class DbuParser:
         if what == 'RUNNING':
             self.current_executors += 1
             if self.max_executors < self.current_executors:
-                max_executors = self.current_executors
+                self.max_executors = self.current_executors
         elif what == 'LOST':
             self.current_executors -= 1
             assert self.current_executors >= 0, "Number of active executors can't be negative"
